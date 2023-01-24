@@ -1,0 +1,346 @@
+import time
+from openpyxl import*
+from turtle import*
+
+
+def Type_5_18785():
+    q = 0
+    while True:
+        q += 1
+        n = q
+        n = bin(n)
+        n = n[2:]
+        if n[-1] == '0':
+            n = '1' + n
+            n += '0'
+        else:
+            n = '11' + n
+            n += '11'
+        print(n, q)
+        if int(n, base=2) > 52:
+             break
+
+
+def Type_12_16443():
+    q = '1' * 84
+    while '11111' in q:
+        q = q.replace('222', '1', 1)
+        q = q.replace('111', '2', 1)
+    print(q)
+
+
+def Type_6_27403():
+    q = 100000
+    while True:
+        s = q
+        s = s // 10
+        n = 1
+        while s < 51:
+            s = s + 5
+            n = n * 2
+        print(n, q, end=' ')
+        q -= 1
+        if n == 64:
+            break
+
+
+def Type_8_18558():
+    count = 0
+    for i in range(4):
+        for b in range(4):
+            for a in range(4):
+                for n in range(4):
+                    for q in range(4):
+                        word = str(i) +str(b) +str(a) +str(n) +str(q)
+                        if '1' in word:
+                            count += 1
+    print(count)
+
+
+def Type_6_47245():
+    t = Turtle()
+    t1 = Turtle()
+    q = 0
+    w = 20
+    t.left(90)
+    t.speed(0)
+    t1.speed(0)
+
+    def turtelight(n, m, p=1):
+        for i in range(p):
+            t.forward(n * w)
+            t.right(m)
+
+
+    def point(x, y, size=4):
+        t1.up()
+        t1.goto(x, y)
+        t1.dot(size, "#3ae6ca")
+
+
+    turtelight(10, 60, 6)
+
+
+    while True:
+        for x in range(-q, q):
+            point(x * w, -q * w)
+        for y in range(-q, q):
+            point(q * w, y * w)
+        for x in range(q, -q, -1):
+            point(x * w, q * w)
+        for y in range(q, -q, -1):
+            point(-q * w, y * w)
+        q += 1
+
+
+def Type_6_47246():
+    t = Turtle
+    t.left(90)
+    t.speed(0)
+    def point(x, y, p=4):
+        t.goto(x, y)
+        t.dot(p)
+    q = 0
+    s = 20
+    t.forward(14 * s)
+    t.right(120)
+    while True:
+        for x in range(-q, q):
+            point(x, -q)
+        for y in range(-q, q):
+            point(q, y)
+        for x in range(q, -q):
+            point(x, q)
+        for y in range(-q, q):
+            point(y, -q)
+
+
+def Type_14_():
+    a = 3 * 4 ** 38 + 2 * 4 ** 23 + 4 ** 20 + 3 * 4 ** 5 + 2 * 4 ** 4 + 1
+    n = 0
+    count = 0
+    while a:
+        n = a % 16
+        if n == 0:
+            count += 1
+        a //= 16
+    print(count)
+
+
+def Type_14_45248():
+    a = 7 * 512**1912 + 6 * 64**1954 - 5 * 8**1991 - 4 * 8**1980 - 2022
+    count = 0
+    while a > 0:
+        if 7 == a % 8:
+            count += 1
+        a //= 8
+    print(count)
+
+
+def Typy_14_40989():
+    count = 0
+    a = 2 * 216**8 + 4 * 36**12 + 6**15 - 1296
+    while a > 0:
+        if not a % 6:
+            count += 1
+        a //= 6
+    print(count)
+
+
+def Type_14_40730():
+    count = 0
+    a = 3 * 125**6 + 2 * 25**9 + 5**12 - 625
+    while a > 0:
+        if not a % 5:
+            count += 1
+        a //= 5
+    print(count)
+
+
+def Type_14_35472():
+    count = 0
+    a = 729**7 + 3**16 - 18
+    while a > 0:
+        if not a % 9:
+            count += 1
+        a //= 9
+        print(count)
+
+
+def Type_15_9804():
+    for a in range(100):
+        for x in range(0, 1024):
+            if ((x & 29 != 0) <= ((x & 17 == 0) <= (x & a != 0))) != 1:
+                break
+        else:
+            print(a)
+            break
+
+
+def Type_15_34506():
+    #x&25 ≠ 0 → (x&17 = 0 → x&А ≠ 0)
+    for a in range(100):
+        for x in range(1000):
+            if ((x & 25 != 0) <= ((x & 17 == 0) <= (x & a != 0))) != 1:
+                break
+        else:
+            print(a)
+            break
+
+
+def Type_15_34508():
+    #x & 29 ≠ 0 → (x & 12 = 0 → x & А ≠ 0)
+    for a in range(1000):
+        for x in range(1000):
+            if ((x & 29 != 0) <= ((x & 12 == 0) <= (x & a != 0))) != 1:
+                break
+        else:
+            print(a)
+            break
+
+
+def Type_15_34509():
+    for a in range(10000):
+        for x in range(10000):
+            if (((x & 28 != 0) or (x & 45 != 0)) <= ((x & 17 == 0 ) <= (x & a != 0))) != 1:
+                break
+        else:
+            print(a)
+            break
+
+
+def Type_15_34510():
+    #x&25 ≠ 0 → (x&9 = 0 → x&А ≠ 0)
+    for a in range(1, 1000):
+        for x in range(1000):
+            if ((x & 25 != 0) <= ((x & 9 == 0) <= (x & a != 0))) != 1:
+                break
+
+        else:
+            print(a)
+            break
+
+
+def Type_17_37336():
+    numbers = []
+    max_pare = -9999999999
+    count = 0
+    with open('17.txt') as file:
+        for number in file:
+            numbers.append(int(number))
+    for i in range(len(numbers) - 1):
+        if numbers[i] % 3 == 0 or numbers[i+1] % 3 == 0:
+            count =+ 1
+            max_pare = max(max_pare, numbers[i] + numbers[i + 1])
+    print(max_pare)
+
+
+def Type_5_8094():
+    for i in range(1, 100000):
+        i = bin(i)[2:]
+        print(i)
+        for j in range(2):
+            q = i.count('1')
+            print(q)
+            print()
+            i = i + str(q % 2)
+            print(int(i, 2))
+        if (int(i, 2)) >= 43:
+            print("ответ:",int(i, 2))
+            break
+
+
+def Type_5_15622():
+    for i in range(1, 10000):
+        i = bin(i)[2:]
+        if i.count('1') % 2 == 0:
+            i += '00'
+        else:
+            i += '11'
+        if int(i, 2) > 114:
+            print(int(i, 2))
+            break
+
+
+def Type_6():
+    t = Turtle()
+    t.right(90)
+    Q = 30
+    for i in range(4):
+        t.forward(10 * Q)
+        t.right(60)
+        t.forward(10 * Q)
+        t.right(120)
+    t.up()
+    for i in range(-30, 1000):
+        for j in range(-30, 20):
+            t.goto(i * Q, j * Q)
+            t.dot(4, "red")
+
+
+def Type_12_9365():
+    s = '1' * 39 + '2' * 39
+    while '111' in s:
+        s = s.replace('111', '2', 1)
+        s = s.replace('222', '1', 1)
+    print(s)
+
+
+def Type_12_14273():
+    s = '7' * 85
+    while '333' in s or '777' in s:
+        s = s.replace('333', '7', 1)
+        s = s.replace('777', '3', 1)
+    print(s)
+
+
+def Type_12_13517():
+    s = '2' + '8' * 99 + '1'
+    while '81' in s or '882' in s or '8883' in s:
+        s = s.replace('81', '2', 1)
+        s = s.replace('882', '3', 1)
+        s = s.replace('8883', '1', 1)
+    print(s)
+
+
+def Type_12_11350():
+    s = '8' * 69
+    while '3333' in s or '8888' in s:
+        s = s.replace('8888', '33', 1)
+        s = s.replace('3333', '88', 1)
+    print(s)
+
+
+def Type_12_17378():
+    s = '1' * 77
+    while '111' in s or '222' in s or '333' in s:
+        s = s.replace('111', '2', 1)
+        s = s.replace('222', '3', 1)
+        s = s.replace('333', '1', 1)
+    print(s)
+
+
+def Type_12_38946():
+    s = '1' * 201
+    while True:
+        q = s
+        while '111' in q:
+            q = q.replace('111', '22', 1)
+            q = q.replace('222', '1', 1)
+        if '2' not in q:
+            print(s.count('1'))
+            break
+        s = s + '1'
+
+
+def Type_12_10290():
+    s = '1' + '8' * 80
+    while '18' in s or '288' in s or '3888' in s:
+        s = s.replace('18', '2', 1)
+        s = s.replace('288', '3', 1)
+        s = s.replace('3888', '1', 1)
+    print(s)
+
+
+if __name__ == '__main__':
+    Type_12_10290()
