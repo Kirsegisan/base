@@ -404,5 +404,15 @@ def Type_24_33103():
     print(count)
 
 
+def Type_24_33526():
+    with open('24_demo(33526).txt') as file:
+        line = file.readline()
+    counts = {count: 0 for count in 'QWERTYUIOPLKJHGFDSAZXCVBNM'}
+    for i in range(1, len(line) - 1):
+        if line[i - 1] == line[i + 1]:
+            counts[line[i]] += 1
+    print(counts)
+
+
 if __name__ == '__main__':
-    Type_24_33103()
+    Type_24_33526()
