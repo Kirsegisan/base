@@ -343,7 +343,7 @@ def Type_12_10290():
 
 
 def Type_24_27421():
-    with open('24_demo.txt') as file:
+    with open('24_demo(27421).txt') as file:
         line = file.readline()
     count = 1
     max_count = 0
@@ -370,6 +370,39 @@ def Type_24_27421():
     print(max_count_XY)
 
 
+def Type_24_27689():
+    with open('24_demo(27689).txt') as file:
+        line = file.readline()
+    flag = 0
+    count = 0
+    max_count_XYZ = 0
+
+    for i in range(0, len(line) - 2):
+        if flag:
+            flag -= 1
+            continue
+        if line[i] + line[i + 1] + line[i + 2] == 'XYZ':
+            count += 3
+            flag = 2
+        else:
+            if line[i] + line[i + 1] == 'XY':
+                count += 2
+            elif line[i] == 'X':
+                count += 1
+
+            max_count_XYZ = max(max_count_XYZ, count)
+            count = 0
+    print(max_count_XYZ)
+
+
+def Type_24_33103():
+    count = 0
+    with open('24_demo(33103).txt') as file:
+        for line in file:
+            if line.count('A') > line.count('E'):
+                count += 1
+    print(count)
+
 
 if __name__ == '__main__':
-    Type_24_27421()
+    Type_24_33103()
