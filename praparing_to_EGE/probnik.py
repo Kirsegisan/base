@@ -1,5 +1,5 @@
 import time
-from openpyxl import*
+#from openpyxl import*
 from turtle import*
 
 
@@ -342,5 +342,34 @@ def Type_12_10290():
     print(s)
 
 
+def Type_24_27421():
+    with open('24_demo.txt') as file:
+        line = file.readline()
+    count = 1
+    max_count = 0
+    for i in range(0, len(line) - 1):
+        if line[i] != line[i+1]:
+            count += 1
+        else:
+            max_count = max(max_count, count)
+            count = 1
+    print(max_count)
+    count_XY = 0
+    max_count_XY = 0
+    flag = False
+    for i in range(0, len(line) - 1):
+        if flag:
+            flag = False
+            continue
+        if line[i] == 'X' and line[i + 1] == 'Y':
+            count_XY += 1
+            flag = True
+        else:
+            max_count_XY = max(max_count_XY, count_XY)
+            count_XY = 0
+    print(max_count_XY)
+
+
+
 if __name__ == '__main__':
-    Type_12_10290()
+    Type_24_27421()
