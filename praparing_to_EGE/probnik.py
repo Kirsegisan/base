@@ -414,5 +414,28 @@ def Type_24_33526():
     print(counts)
 
 
+def Type_24_47391():
+    t = Turtle()
+    s = 20
+    t.left(90)
+    t.begin_fill()
+    t.color('blue')
+    for i in range(14):
+        t.right(60)
+        t.forward(2 * s)
+        t.right(60)
+        t.forward(2 * s)
+        t.right(270)
+    t.up()
+    t.end_fill()
+    canvas = getcanvas()
+    for x in range(-10, 10):
+        for y in range(-10, 10):
+            sr = canvas.find_owerlaping
+            t.goto(x, y)
+            t.dot(4)
+
+
+
 if __name__ == '__main__':
-    Type_24_33526()
+    Type_24_47391()
