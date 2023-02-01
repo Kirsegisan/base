@@ -525,6 +525,5 @@ def Type_23_3623():
     print(find_paths(93))
 
 
-
 if __name__ == '__main__':
     Type_23_3623()
