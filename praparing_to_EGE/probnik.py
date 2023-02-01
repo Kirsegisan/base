@@ -485,7 +485,35 @@ def Type_6_47210():
         print(count)
 
 
+def Type_6_47245():
+    t = Turtle()
+    tracer(0)
+    s = 20
+    t.left(90)
+    t.begin_fill()
+    for i in range(3):
+        t.forward(9 * s)
+        t.right(120)
+    t.end_fill()
+    t.up()
+    convas = getcanvas()
+    count = 0
+    for x in range(-100, 100):
+        x = x * s
+        for y in range(-100, 100):
+            y = y * s
+            q = convas.find_overlapping(x, -y, x, -y)
+            if 5 in q and 4 not in q:
+                t.goto(x, y)
+                t.dot(2, "red")
+                count += 1
+            else:
+                t.goto(x, y)
+                t.dot(2, "blue")
+    tracer(1)
+    while True:
+        print(count)
 
 
 if __name__ == '__main__':
-    Type_6_47210()
+    Type_6_47245()
