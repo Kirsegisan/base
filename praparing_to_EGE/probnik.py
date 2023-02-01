@@ -456,12 +456,36 @@ def Type_6_47210():
     t = Turtle()
     tracer(0)
     s = 10
+    t.left(90)
     t.begin_fill()
     for i in range(3):
         t.forward(10 * s)
         t.right(120)
     t.end_fill()
+    t.up()
+    count = 0
+    canvas = getcanvas()
+    for x in range(-50, 50):
+        for y in range(-50, 50):
+            x_1 = x * s
+            y_1 = y * s
+            q = canvas.find_overlapping(x_1, -y_1, x_1, -y_1)
+            if 4 not in q and 5 in q:
+                t.goto(x_1, y_1)
+                t.dot(2, "red")
+                count += 1
+            else:
+                t.goto(x_1, y_1)
+                t.dot(2, "blue")
+            print(q)
+
+
     tracer(1)
+    while True:
+        print(count)
+
+
+
 
 if __name__ == '__main__':
     Type_6_47210()
