@@ -515,5 +515,16 @@ def Type_6_47245():
         print(count)
 
 
+def Type_23_3623():
+    def find_paths(n):
+        if n == 3:
+            return  1
+        elif n % 3 == 0:
+            return find_paths(n // 3) + find_paths(n - 3)
+        return 0
+    print(find_paths(93))
+
+
+
 if __name__ == '__main__':
-    Type_6_47245()
+    Type_23_3623()
