@@ -294,9 +294,6 @@ def Type_6():
         print(count)
 
 
-
-
-
 def Type_12_9365():
     s = '1' * 39 + '2' * 39
     while '111' in s:
@@ -455,5 +452,16 @@ def Type_24_47391():
             t.dot(4)
 
 
+def Type_6_47210():
+    t = Turtle()
+    tracer(0)
+    s = 10
+    t.begin_fill()
+    for i in range(3):
+        t.forward(10 * s)
+        t.right(120)
+    t.end_fill()
+    tracer(1)
+
 if __name__ == '__main__':
-    Type_6()
+    Type_6_47210()
