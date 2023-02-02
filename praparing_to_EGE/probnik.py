@@ -447,7 +447,7 @@ def Type_24_47391():
     canvas = getcanvas()
     for x in range(-10, 10):
         for y in range(-10, 10):
-            sr = canvas.find_owerlaping
+            sr = canvas.find_owerlaping(x, -y, x, -y)
             t.goto(x, y)
             t.dot(4)
 
@@ -518,12 +518,68 @@ def Type_6_47245():
 def Type_23_3623():
     def find_paths(n):
         if n == 3:
-            return  1
+            return 1
         elif n % 3 == 0:
             return find_paths(n // 3) + find_paths(n - 3)
         return 0
     print(find_paths(93))
 
 
+def Type_23_7315():
+    def find_paths(n):
+        if n == 1:
+            return 1
+        if n % 2 == 1:
+            return find_paths((n - 1) // 2) + find_paths(n - 1)
+        return find_paths(n // 2) + find_paths(n - 1)
+
+    print(find_paths(15))
+
+
+def Type_23_47227():
+    def find_paths(n):
+        if n == 1:
+            return 1
+        if n % 2 == 0:
+            return find_paths(n / 2) + find_paths(n - 1)
+        if n - 1 >= 1:
+            return find_paths(n - 1)
+        return 0
+    print(find_paths(35))
+
+
+def Type_23_39252():
+    def find_paths(n):
+        if n == 2:
+            return 1
+        if n / 3 >= 2:
+            return find_paths(n / 3) + find_paths(n - 1)
+        return 0
+    print(find_paths(87))
+
+
+def Type_23_13471():
+    def find_paths(n):
+        if n == 24:
+            return 0
+        if n == 1:
+            return 1
+        if n // 2 >= 1:
+            return find_paths(n // 2) + find_paths(n - 1)
+        return 0
+    print(find_paths(25))
+
+
+def Type_23_5977():
+
+    def find_paths(n):
+        if n == 10:
+            return 1
+        if n - 10 >= 10:
+            return find_paths(n - 10) + find_paths(n - 1)
+        return 0
+    print(find_paths(33))
+
+
 if __name__ == '__main__':
-    Type_23_3623()
+    Type_23_5977()
