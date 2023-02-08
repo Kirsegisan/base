@@ -538,17 +538,14 @@ def Type_23_7315():
 
 def Type_23_47227():
     def find_paths(n):
-        if n == 10:
+        if n == 1:
             return 1
-        if n == 17:
-            return 0
-        if n % 2 == 0 and n / 2 >= 10:
+        if n % 2 == 0:
             return find_paths(n / 2) + find_paths(n - 1)
-        if n - 1 >= 10:
+        if n - 1 >= 1:
             return find_paths(n - 1)
         return 0
     print(find_paths(35))
-    print(14 * 7)
 
 
 def Type_23_39252():
@@ -567,10 +564,8 @@ def Type_23_13471():
             return 0
         if n == 1:
             return 1
-        if n % 2 == 1 and n // 2 >= 1:
+        if n // 2 >= 1:
             return find_paths(n // 2) + find_paths(n - 1)
-        if n - 1 >= 1:
-            return find_paths(n - 1)
         return 0
     print(find_paths(25))
 
@@ -582,11 +577,9 @@ def Type_23_5977():
             return 1
         if n - 10 >= 10:
             return find_paths(n - 10) + find_paths(n - 1)
-        if n - 1 >= 10:
-            return find_paths(n - 1)
         return 0
     print(find_paths(33))
 
 
 if __name__ == '__main__':
-    Type_23_47227()
+    Type_23_5977()
