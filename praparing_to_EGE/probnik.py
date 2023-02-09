@@ -581,31 +581,20 @@ def Type_23_5977():
     print(find_paths(33))
 
 
-def Type_25_27422():
-    flag = True
-    flag_n = True
-    for number in range(174457, 174506):
-        for i in range(2, number):
-            flag_n = True
-            for n in range(2, i):
-                if i % n == 0:
-                    flag_n = False
-                    break
-                if not flag_n:
-                    break
-            else:
-                for j in range(2, number):
-                    flag_n = True
-                    for n in range(2, i):
-                        if j % n == 0:
-                            flag_n = False
-                            break
-                        if not flag_n:
-                            break
-                    else:
-                        if number % j == 0 and number % i == 0 and j != i:
-                            print(i, j)
+# def Type_25_27422():
+#     for number in range(174457, 174506):
+#         flag = False
+#         result = None
+#         for i in range(2, (number // 2) ** 0.5):
+#             if number % i == 0:
+#                 result = (i, number // i)
+#
+#             if flag:
+#                 break
+#             flag = True
+#         else:
+#             print(result)
 
 
 if __name__ == '__main__':
-    Type_25_27422()
+    ...
