@@ -597,7 +597,7 @@ def Type_23_5977():
 
 
 def Type_2_39231():
-    #(¬z ≡ y) → ((w ∧ ¬x) ≡ (y ∧ x))
+    #(¬z ≡ y) → ((w ∧ ¬x) ≡ (y ∧ x)) == 0
     for x in range(2):
         for y in range(2):
             for z in range(2):
@@ -606,5 +606,55 @@ def Type_2_39231():
                         print(z, w, x, y)
 
 
+def Type_2_16377 ():
+    # ((x → y) ≡ (y → z)) ∧ (y ∨ w) == 1
+    for x in range(2):
+        for y in range(2):
+            for z in range(2):
+                for w in range(2):
+                    if ((x <= y) == (y <= z)) and (y or w):
+                        print(x, z, w, y)
+
+
+def Type_2_28538():
+    # ((x ∧ y) → (¬z ∨ w)) ∧ ((¬w → x) ∨ ¬y) == 0
+    for x in range(2):
+        for y in range(2):
+            for z in range(2):
+                for w in range(2):
+                    if not ((( x and y) <= (not z or w)) and (( not w <= x) or not y)):
+                        print(x, y, w, z)
+
+
+def Type_2_17320():
+    #((x ∧ y) ∨ (y ∧ z)) ≡ ((x → w) ∧ (w → z)) == 1
+    for x in range(2):
+        for y in range(2):
+            for z in range(2):
+                for w in range(2):
+                    if ((x and y) or (y and z)) == ((x <= w) and (w <= z)):
+                        print(x, w, z, y)
+
+
+def Type_2_29109():
+    #((z → w) ∨ (y ≡ w)) ∧ ((x ∨ z) ≡ y) == 1
+    for x in range(2):
+        for y in range(2):
+            for z in range(2):
+                for w in range(2):
+                    if ((z <= w) or (z == w)) and ((x or z) == y):
+                        print(z, y, x, w)
+
+
+def Type_2_46960():
+    #(¬y → (z ≡ w)) ∧ ((z → x) ≡ w) == 1
+    for x in range(2):
+        for y in range(2):
+            for z in range(2):
+                for w in range(2):
+                    if ((not y) <= (z == w)) and ((z <= x) == w):
+                        print(z, w, y, x)
+
+
 if __name__ == '__main__':
-    Type_2_39231()
+    Type_2_46960()
