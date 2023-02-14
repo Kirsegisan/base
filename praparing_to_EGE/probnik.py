@@ -596,5 +596,15 @@ def Type_23_5977():
 #             print(result)
 
 
+def Type_2_39231():
+    #(¬z ≡ y) → ((w ∧ ¬x) ≡ (y ∧ x))
+    for x in range(2):
+        for y in range(2):
+            for z in range(2):
+                for w in range(2):
+                    if not (not z == y) <= ((w and not x) == (y and x)):
+                        print(z, w, x, y)
+
+
 if __name__ == '__main__':
-    ...
+    Type_2_39231()
