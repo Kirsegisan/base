@@ -656,5 +656,45 @@ def Type_2_46960():
                         print(z, w, y, x)
 
 
+def Type_2_15912():
+    # ((x → y ) ≡ (z → w)) ∨ (x ∧ w) == 0
+    for x in range(2):
+        for y in range(2):
+            for z in range(2):
+                for w in range(2):
+                    if not (((x <= y) == (z <= w)) or (x and w)):
+                        print(z, y, x, w)
+
+
+def Type_17_40733():
+    f = []
+    even = 0
+    even_count = 0
+    with open("17_40733.txt") as file:
+        for line in file:
+            f += [line]
+            if int(line) % 2 == 0:
+                even += int(line)
+                even_count += 1
+    even_count_srar = even // even_count
+    count = 0
+    max_sum = - 99999
+    for i in range(len(f) - 1):
+        if int(f[i]) * int(f[i + 1]) % 3 == 0 and (int(f[i]) < even_count_srar or int(f[i + 1]) < even_count_srar):
+            count += 1
+            max_sum = max(max_sum, int(f[i]) + int(f[i + 1]))
+    print(count)
+    print(max_sum)
+
+def Type_16_6990():
+    def F(n):
+        if n == 1:
+            return 1
+        if n > 1:
+            return F(n- 1) + n
+        return 0
+    print(F(40))
+
+
 if __name__ == '__main__':
-    Type_2_46960()
+    Type_17_40733()
