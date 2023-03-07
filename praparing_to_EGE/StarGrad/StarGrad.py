@@ -1,4 +1,5 @@
 from turtle import *
+from itertools import permutations
 
 
 def Type_2():
@@ -48,27 +49,37 @@ def Type_6():
 
 
 def Type_12():
-    a = '0123456789'
-    def resort(a):
-        if len(a) == 2:
-            return a[1] + a[0]
-        return resort(a[1:]) + a[0]
-    print(resort(a))
 
-    # for i in '12':
-    #     for j in '12':
-    #         a = '0' + i + j + '0'
-    #         while not "00" in a:
-    #             if "011" in a:
-    #                 a = a.replace('011', '101', 1)
-    #                 print(a, 'k')
-    #             else:
-    #                 a = a.replace('01', '40', 1)
-    #                 a = a.replace('02', '20', 1)
-    #                 a = a.replace('0222', '1401', 1)
-    #                 print(a, 'o')
+
+    def f(a):
+        while not "00" in a:
+            if "011" in a:
+                a = a.replace('011', '101', 1)
+            else:
+                a = a.replace('01', '40', 1)
+                a = a.replace('02', '20', 1)
+                a = a.replace('0222', '1401', 1)
+        return a
+
+
+    q = '12'
+    while True:
+        r = []
+        print('ok')
+        q += '12'
+        w = list(permutations(q))
+        for a in w:
+            if r.count(a) <= 1:
+                a = '0' + "".join(a) + '0'
+                q = a
+                r += a
+                a = f(a)
+
+                if a.count('1') == 6 and a.count('2') == 9:
+                    print(q, 'ok', a.count('4'))
 
 
 
 if __name__ == "__main__":
     Type_12()
+
