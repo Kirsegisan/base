@@ -47,7 +47,28 @@ def Type_6():
         print(count)
 
 
+def Type_12():
+    a = '0123456789'
+    def resort(a):
+        if len(a) == 2:
+            return a[1] + a[0]
+        return resort(a[1:]) + a[0]
+    print(resort(a))
+
+    # for i in '12':
+    #     for j in '12':
+    #         a = '0' + i + j + '0'
+    #         while not "00" in a:
+    #             if "011" in a:
+    #                 a = a.replace('011', '101', 1)
+    #                 print(a, 'k')
+    #             else:
+    #                 a = a.replace('01', '40', 1)
+    #                 a = a.replace('02', '20', 1)
+    #                 a = a.replace('0222', '1401', 1)
+    #                 print(a, 'o')
+
 
 
 if __name__ == "__main__":
-    Type_6()
+    Type_12()
