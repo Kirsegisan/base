@@ -62,22 +62,25 @@ def Type_12():
         return a
 
 
-    q = '12'
-    while True:
-        r = []
-        print('ok')
-        q += '12'
-        w = list(permutations(q))
-        for a in w:
-            if r.count(a) <= 1:
-                a = '0' + "".join(a) + '0'
-                q = a
-                r += a
-                a = f(a)
-
-                if a.count('1') == 6 and a.count('2') == 9:
-                    print(q, 'ok', a.count('4'))
-
+    # q = '12'
+    """
+    Подбором
+    """
+    # while True:
+    #     r = []
+    #     print('ok')
+    #     q += '12'
+    #     w = list(permutations(q))
+    #     for a in w:
+    #         if r.count(a) <= 1:
+    #             a = '0' + "".join(a) + '0'
+    #             q = a
+    #             r += a
+    #             a = f(a)
+    #
+    #             if a.count('1') == 6 and a.count('2') == 9:
+    #                 print(q, 'ok', a.count('4'))
+    print(f('01112221112221112220'))
 
 
 if __name__ == "__main__":
