@@ -64,15 +64,19 @@ def Type_16():
     print(f(7))
 
 
-# def Type_17():
-#     count = 0
-#     max_rasnitsa = -20001
-#     f = []
-#     with open('17_22_03_23.txt') as file:
-#         for line in file:
-#             f += line
-#         print(f)
+def Type_17():
+    count = 0
+    max_rasnitsa = -20001
+    with open('17_22_03_23.txt') as file:
+        for line in file:
+            f = [int(line) for line in file]
+    for i in range(len(f)):
+        for j in range(i + 1, len(f)):
+            if (f[i] - f[j]) % 60 == 0 and (f[i] % 15 == 0 or f[j] % 15 == 0):
+                count += 1
+                max_rasnitsa = max(max_rasnitsa, f[i] - f[j], f[j] - f[i])
+    print(count, max_rasnitsa)
 
 
 if __name__ == "__main__":
-    Type_16()
+    Type_17()
