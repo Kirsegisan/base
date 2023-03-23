@@ -48,9 +48,10 @@ def Type_15():
     #ДЕЛ(120, A) ∧ (¬ДЕЛ(x, А) → (ДЕЛ(x, 18) → ¬ДЕЛ(x, 24)))
     while True:
         for x in range(100000):
-            if f(120, a):
-                if ((not f(x, a)) <= (f(x, 18) <= (not f(x, 24)))):
-                    print(a)
+            if not(f(120, a) and (not f(x, a)) <= (f(x, 18) <= (not f(x, 24)))):
+                break
+        else:
+            print(a)
         a += 1
 
 
@@ -78,4 +79,4 @@ def Type_17():
 
 
 if __name__ == "__main__":
-    Type_17()
+    Type_15()
