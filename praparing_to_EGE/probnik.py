@@ -587,6 +587,7 @@ def Type_23_5977():
 #         result = None
 #         for i in range(2, (number // 2) ** 0.5):
 #             if number % i == 0:
+#                 flag = True
 #                 result = (i, number // i)
 #
 #             if flag:
