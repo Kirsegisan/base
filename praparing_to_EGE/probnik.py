@@ -696,5 +696,15 @@ def Type_16_6990():
     print(F(40))
 
 
+def Type_2_29109():
+    #((z → w) ∨ (y ≡ w))∧((x∨z) ≡ y)
+    for x in range(2):
+        for y in range(2):
+            for z in range(2):
+                for w in range(2):
+                    if (((z <= w) or (y == w)) and ((x or z) == y)) == 1:
+                        print(z, y, x, w)
+
+
 if __name__ == '__main__':
-    Type_17_40733()
+    Type_2_29109()
