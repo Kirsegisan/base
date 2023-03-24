@@ -78,5 +78,17 @@ def Type_17():
     print(count, max_rasnitsa)
 
 
+def Type_23():
+  def f(n):
+    if n == 3:
+      return 1
+    if n% 2 == 0:
+      return f(n // 2) + f(n - 1) 
+    if n > 3: 
+      return f(n - 1) 
+    return 0
+  print(f(63)) 
+
+
 if __name__ == "__main__":
     Type_15()
