@@ -581,20 +581,15 @@ def Type_23_5977():
     print(find_paths(33))
 
 
-# def Type_25_27422():
-#     for number in range(174457, 174506):
-#         flag = False
-#         result = None
-#         for i in range(2, (number // 2) ** 0.5):
-#             if number % i == 0:
-#                 flag = True
-#                 result = (i, number // i)
-#
-#             if flag:
-#                 break
-#             flag = True
-#         else:
-#             print(result)
+def Type_25_27422():
+    for number in range(174457, 174506):
+        flag = 1
+        for i in range(2, int((number // 2) ** 0.5) + 1):
+            if number % i == 0:
+                flag -= 1
+                result = (i, number // i)
+        if not flag:
+            print(result)
 
 
 def Type_2_39231():
@@ -687,6 +682,7 @@ def Type_17_40733():
     print(count)
     print(max_sum)
 
+
 def Type_16_6990():
     def F(n):
         if n == 1:
@@ -707,5 +703,152 @@ def Type_2_29109():
                         print(z, y, x, w)
 
 
+def Type_2_12604558():
+    #¬(y→x)∨(z→w)∨¬z
+    for x in range(2):
+        for y in range(2):
+            for z in range(2):
+                for w in range(2):
+                    if not ((not(y <= x)) or (z <= w) or not z):
+                        print(y, x, z, w)
+
+
+def Type_5_12604558():
+    a = 0
+    q = 0
+    while not q > 115:
+        a += 1
+        q = bin(a)[2:]
+        if q[-1] == '0':
+            q = q + '00'
+        else:
+            q = q + '11'
+        q = int(q, 2)
+        print(a, q)
+
+
+def Type_6_12604558():
+    t = Turtle()
+    count = 0
+    z = 10
+    tracer(0)
+    t.left(90)
+    t.begin_fill()
+    for i in range(6):
+        t.right(36)
+        t.forward(10 * z)
+        t.right(36)
+    t.end_fill()
+    t.up()
+
+    convas = getcanvas()
+
+    for x in range(-1000, 1000):
+        for y in range(-1000, 1000):
+            s = convas.find_overlapping(x*z, y*z, x*z, y*z)
+            if len(s) == 1:
+                count += 1
+
+    tracer(1)
+    while True:
+        t.forward(1000)
+        print(count)
+
+
+def Type_7_12604558():
+    #?
+    print((2 * 2**23 // 2048 - (640 * 2**13)) // (1024 * 768))
+
+
+def Type_8_12604558():
+    print(6*5*4*8 + 6*5*16)
+
+
+def Type_12_12604558():
+    a = '7' * 40 + '9' * 40 + '4' * 50
+    while '49' in a or '97' in a or '47' in a:
+        if '47' in a:
+            a = a.replace('47', '74', 1)
+        if '97' in a:
+            a = a.replace('97', '79', 1)
+        if '49' in a:
+            a = a.replace('49', '94', 1)
+    print(a[25], a[71], a[105])
+
+
+def Type_14_12604558():
+    a = 3 * 216**4 + 2 * 36**6 - 648
+    count = 0
+    while a:
+        if a % 6 == 5:
+            count += 1
+        a = a // 6
+    print(count)
+
+
+def Type_16_12604558():
+    def f(n):
+        if n == 1:
+            return 1
+        return f(n-1) * f(n-1) - f(n-1) * n + 2 * n
+    print(f(4))
+
+
+def Type_17_12604558():
+    with open("17 (12604558).txt") as file:
+        f = [int(f) for f in file]
+    count = 0
+    max_number = -20001
+    for i in range(len(f) - 1):
+        if f[i] % 3 == 0 or f[i + 1] % 3 == 0:
+            count += 1
+            max_number = max(max_number, abs(f[i] - f[i + 1]))
+    print(count, max_number)
+
+
+def Type_23_12604558():
+    def f(n):
+        if n == 5 or n == 10:
+            return 0
+        if n == 2:
+            return 1
+        if n % 2 == 0:
+            return f(n // 2) + f(n - 3) + f(n - 1)
+        if n - 3 >= 2:
+            return f(n - 3) + f(n - 1)
+        return 0
+    print(f(14))
+
+
+def Type_24_12604558():
+    vivod = 0
+    with open("24(12604558).txt") as file:
+        f = [str(f)[:-2] for f in file]
+
+    for line in f:
+        if line.count('A') < 25:
+            count = 0
+            for i in range(len(line) - 1):
+                for j in range(i, len(line)):
+                    if line[i] == line[j]:
+                        count = max(count, j - i)
+            vivod = max(count, vivod)
+    print(vivod)
+
+
+def Type_25_12604558():
+    for number in range(2000000, 3000000 + 1):
+        s = list()
+        flag = 0
+        for i in range(1, int(number ** 0.5)):
+            if number % i == 0:
+                q = number // i - i
+                if q <= 115:
+                    flag += 1
+                s.append(q)
+        if flag > 2:
+            print(number)
+
+
 if __name__ == '__main__':
-    Type_2_29109()
+    Type_25_12604558()
