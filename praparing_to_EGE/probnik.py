@@ -850,5 +850,90 @@ def Type_25_12604558():
             print(number)
 
 
+def Type_17_37358():
+    with open("17 (37358).txt") as file:
+        f = [int(line) for line in file]
+    count = 0
+    max_par = -20001
+    for i in range(len(f) - 1):
+        for j in range(i + 1, len(f)):
+            number = f[i] + f[j]
+            if number % 10 == 0:
+                count += 1
+                max_par = max(max_par, number)
+    print(count, max_par)
+
+
+def Type_17_37369():
+    with open("17 (37369).txt") as file:
+        f = [int(line) for line in file]
+    count = 0
+    max_ras = 0
+    for i in range(len(f) - 1):
+        for j in range(i + 1, len(f)):
+            numbers = abs(f[i] - f[j])
+            if numbers % 80 == 0:
+                count += 1
+                max_ras = max(max_ras, numbers)
+    print(count, max_ras)
+
+
+def Type_17_46975():
+    with open("17 (46975).txt") as file:
+        f = [int(l) for l in file]
+    count_add = 0
+    count = 0
+    max_summ = -20001
+    q = 0
+
+    for number in f:
+        if number % 2 == 0:
+            count_add += 1
+            q += number
+
+    srzna = q / count_add
+
+    for i in range(len(f) - 1):
+        if f[i] % 3 == 0 and f[i + 1] < srzna:
+            count += 1
+            max_summ = max(max_summ, abs(f[i] + f[i + 1]))
+        elif f[i + 1] % 3 == 0 and f[i] < srzna:
+            count += 1
+            max_summ = max(max_summ, abs(f[i] + f[i + 1]))
+    print(count, max_summ)
+
+
+def Type_17_39246():
+    with open("17 (39246).txt") as file:
+        f = [int(l) for l in file]
+    count = 0
+    max_p = -20001
+    for i in range(len(f) - 1):
+        if (f[i] + f[i + 1]) % 7 == 0 and (f[i] % 5 == 0 or f[i + 1] % 5 == 0):
+            count += 1
+            max_p = max(max_p, f[i] + f[i + 1])
+    print(count, max_p)
+
+
+def Type_17_40733():
+    with open("17 (40733).txt") as file:
+        f = [int(l) for l in file]
+    count = 0
+    max_p = -20001
+    count_q = 0
+    q = 0
+    for numsber in f:
+        if numsber % 2 == 0:
+            count_q += 1
+            q += numsber
+    q = q / count_q
+    for i in range(len(f) - 1):
+        if f[i] % 3 == 0 or f[i + 1] % 3 == 0:
+            if f[i] < q or f[i + 1] < q:
+                count += 1
+                max_p = max(max_p, f[i] + f[ i + 1])
+    print(count, max_p)
+
+
 if __name__ == '__main__':
-    Type_25_12604558()
+    Type_17_46975()
