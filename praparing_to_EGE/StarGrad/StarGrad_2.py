@@ -1,3 +1,6 @@
+from turtle import *
+
+
 def Type_1():
     print('даевгбжи')
 
@@ -60,4 +63,45 @@ def Type_5():
             print(count, end='  ')
 
 
-Type_5()
+def Type_6():
+    t = Turtle()
+    t.left(90)
+    z = 20
+    q = 80
+    t.speed(0)
+    while True:
+        t.down()
+        count = 0
+        q += 1
+        t.begin_fill()
+        for i in range(4):
+            t.forward(q * z)
+            t.right(90)
+            t.forward(q * z)
+            t.left(90)
+            t.forward(q * z)
+            t.right(90)
+        t.goto(-1, -1)
+        t.goto(0, 0)
+        t.end_fill()
+        t.up()
+        convas = getcanvas()
+        w = convas.find_overlapping(-1, 1, -1, 1)
+        e = convas.find_overlapping(q * z * 1.5, - q * z // 2, q * z * 1.5, q * z // 2)
+        w = w[1]
+        for x in range(- q, q * 4 + 1):
+            for y in range(- q * 2, q * 3 + 1):
+                t.goto(x * z, y * z)
+                s = convas.find_overlapping(x * z, -y * z, x * z, -y * z)
+                t.dot(2, 'Blue')
+                if (not w in s) and (e[0] in s):
+                    count += 1
+                    t.dot(3, "Red")
+        t.clear()
+        t.goto(0, 0)
+        if count >= 1000:
+            print(q)
+            break
+
+
+Type_6()
