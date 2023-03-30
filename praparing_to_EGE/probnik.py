@@ -666,7 +666,7 @@ def Type_17_40733():
     f = []
     even = 0
     even_count = 0
-    with open("17_40733.txt") as file:
+    with open("Type_17/17_40733.txt") as file:
         for line in file:
             f += [line]
             if int(line) % 2 == 0:
@@ -795,7 +795,7 @@ def Type_16_12604558():
 
 
 def Type_17_12604558():
-    with open("17 (12604558).txt") as file:
+    with open("Type_17/17 (12604558).txt") as file:
         f = [int(f) for f in file]
     count = 0
     max_number = -20001
@@ -822,7 +822,7 @@ def Type_23_12604558():
 
 def Type_24_12604558():
     vivod = 0
-    with open("24(12604558).txt") as file:
+    with open("Type_24/24(12604558).txt") as file:
         f = [str(f)[:-2] for f in file]
 
     for line in f:
@@ -851,7 +851,7 @@ def Type_25_12604558():
 
 
 def Type_17_37358():
-    with open("17 (37358).txt") as file:
+    with open("Type_17/17 (37358).txt") as file:
         f = [int(line) for line in file]
     count = 0
     max_par = -20001
@@ -865,7 +865,7 @@ def Type_17_37358():
 
 
 def Type_17_37369():
-    with open("17 (37369).txt") as file:
+    with open("Type_17/17 (37369).txt") as file:
         f = [int(line) for line in file]
     count = 0
     max_ras = 0
@@ -879,7 +879,7 @@ def Type_17_37369():
 
 
 def Type_17_46975():
-    with open("17 (46975).txt") as file:
+    with open("Type_17/17 (46975).txt") as file:
         f = [int(l) for l in file]
     count_add = 0
     count = 0
@@ -904,7 +904,7 @@ def Type_17_46975():
 
 
 def Type_17_39246():
-    with open("17 (39246).txt") as file:
+    with open("Type_17/17 (39246).txt") as file:
         f = [int(l) for l in file]
     count = 0
     max_p = -20001
@@ -916,7 +916,7 @@ def Type_17_39246():
 
 
 def Type_17_40733():
-    with open("17 (40733).txt") as file:
+    with open("Type_17/17 (40733).txt") as file:
         f = [int(l) for l in file]
     count = 0
     max_p = -20001
@@ -935,5 +935,44 @@ def Type_17_40733():
     print(count, max_p)
 
 
+def Type_17_37354():
+    with open("Type_17/17 (37354).txt") as file:
+        f = [int(line) for line in file]
+    count = 0
+    max_par = 0
+    for i in range(len(f) - 1):
+        for j in range(i + 1, len(f)):
+            if (f[i] + f[j]) % 2 == 1 and f[i] * f[j] % 5 == 0:
+                count += 1
+                max_par = max(max_par, f[i] + f[j])
+    print(count, max_par)
+
+
+def Type_17_37357():
+    with open("Type_17/17 (37357).txt") as file:
+        f = [int(line) for line in file]
+    max_par = 0
+    count = 0
+    for i in range(len(f) - 1):
+        for j in range(i + 1, len(f)):
+            if (f[i] + f[j]) % 8 == 0:
+                count += 1
+                max_par = max(max_par, f[i] + f[j])
+    print(count, max_par)
+
+
+def Type_17_37350():
+    with open("Type_17/17 (37350).txt") as file:
+        f = [int(line) for line in file]
+    count = 0
+    max_par = 0
+    for i in range(len(f) - 1):
+        for j in range(i + 1, len(f)):
+            if (f[i] + f[j]) % 2 == 1 and f[i] * f[j] % 3 == 0:
+                count += 1
+                max_par = max(max_par, f[i] + f[j])
+    print(count, max_par)
+
+
 if __name__ == '__main__':
-    Type_17_46975()
+    Type_17_37350()
