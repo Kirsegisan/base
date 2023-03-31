@@ -1,6 +1,7 @@
 import time
 #from openpyxl import*
 from turtle import*
+from typing import List
 
 
 def Type_5_18785():
@@ -974,5 +975,36 @@ def Type_17_37350():
     print(count, max_par)
 
 
+def Type_27_35916():
+    with open("Type_27/27_35916.txt") as file:
+        f: list[int] = [int(line) for line in file]
+    f.sort()
+    q = list()
+    q.append(f[0])
+    q.append(f[1])
+    q.append(f[2])
+    count = 3
+    min_par = 10**9 * 3
+    flag = False
+    while True:
+        for i in range(len(q) - 2):
+            for o in range(i + 1, len(q) - 1):
+                for p in range(o + 1, len(q)):
+                    number = f[i] + f[o] + f[p]
+                    if number % 3 == 0:
+                        min_par = min(min_par, number)
+                        flag = True
+        if flag:
+            print(min_par)
+        q.append(f[count])
+        count += 1
+
+
+def Type_27_46985():
+    with open("Type_27/27-A (46985).txt") as file:
+        f = [int(line) for line in file]
+    #В душе не ебу что такое непрерывная подпоследовательность
+
+
 if __name__ == '__main__':
-    Type_17_37350()
+    Type_27_35916()
