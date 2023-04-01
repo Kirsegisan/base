@@ -1091,7 +1091,7 @@ def Type_17_12862437():
     for i in range(len(f) - 1):
         for j in range(i + 1, len(f)):
             number = f[i] + f[j]
-            if number % 26 == 0:
+            if f[i] * f[j] % 26 == 0:
                 count += 1
                 max_par = max(max_par, number)
     print(count, max_par)
@@ -1168,4 +1168,4 @@ def Type_27_12862437():
 
 
 if __name__ == '__main__':
-    Type_26_12862437()
+    Type_17_12862437()
