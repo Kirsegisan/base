@@ -1006,5 +1006,166 @@ def Type_27_46985():
     #В душе не ебу что такое непрерывная подпоследовательность
 
 
+def Type_2_12862437():
+    for x in range(2):
+        for y in range(2):
+            for z in range(2):
+                for w in range(2):
+                    if (((not x) or y or z) == ((not y) and z and w)) == 1:
+                        print(y, w, z, x)
+
+
+def Type_5_12862437():
+    q = 1
+    while True:
+        n = bin(q)[2:]
+        for i in range(2):
+            a = n.count('1')
+            n = n + f'{a % 2}'
+        if int(n, 2) > 85:
+            print(q, n)
+            break
+        q += 1
+
+
+def Type_6_12862437():
+    t = Turtle()
+    t.left(90)
+    count = 0
+    z = 30
+    tracer(0)
+    t.begin_fill()
+    for i in range(4):
+        t.forward(6 * z)
+        t.right(150)
+        t.forward(6 * z)
+        t.right(30)
+    t.end_fill()
+    t.up()
+    convas = getcanvas()
+    for x in range(-10, 10):
+        for y in range(-10, 10):
+            s = convas.find_overlapping(x * z, -y * z, x * z, -y * z)
+            t.goto(x * z, y * z)
+            t.dot(2, 'Red')
+            print(s)
+            if not (4 in s) and 3 in s:
+                t.dot(6, 'Blue')
+    tracer(1)
+    while True:
+        pass
+
+
+def Type_12_12862437():
+    a = '1' * 85
+    while '11111' in a:
+        a = a.replace('111', '2', 1)
+        a = a.replace('222', '1', 1)
+    print(a)
+
+
+def Type_14_12862437():
+    a = 7 * 512**1912 + 6 * 64**1954 - 5 * 8**1991 - 4 * 8**1980 - 2022
+    count = 0
+    while a:
+        if a % 8 == 7:
+            count += 1
+        a = a // 8
+    print(count)
+
+
+def Type_16_12862437():
+    def f(n):
+        if n == 2 or n == 1:
+            return 1
+        if n > 2:
+            return f(n - 2) * n
+    print(f(7))
+
+
+def Type_17_12862437():
+    with open("Type_17/17 (12862437).txt") as file:
+        f = [int(line) for line in file]
+    count = 0
+    max_par = -1
+    for i in range(len(f) - 1):
+        for j in range(i + 1, len(f)):
+            number = f[i] + f[j]
+            if number % 26 == 0:
+                count += 1
+                max_par = max(max_par, number)
+    print(count, max_par)
+
+
+def Type_23_12862437():
+    def f(n):
+        if n == 1:
+            return 1
+        if n / 2 >= 1 and n - 2 >= 1:
+            return f(n / 2) + f(n - 2)
+        if n - 2 >= 1:
+            return f(n - 2)
+        if n / 2 >= 1:
+            return f(n / 2)
+        return 0
+    print(f(16))
+
+
+def Type_24_12862437():
+    with open("Type_24/24(12862437).txt") as file:
+        file = file.readline()
+        count = 1
+        max_count = 0
+        for i in range(len(file) - 1):
+            if file[i] != file[i + 1]:
+                count += 1
+            else:
+                max_count = max(max_count, count)
+                count = 1
+    print(max_count)
+
+
+def Type_25_12862437():
+    for m in range(0, 1000, 2):
+        for n in range(1, 1000, 2):
+            N = 2 ** m * 3 ** n
+            if 400_000_000 <= N <= 600_000_000:
+                print(N)
+
+
+def Type_26_12862437():
+    with open("Type_26/26_12862437.txt") as file:
+        f = [line for line in file]
+    s = 9537
+    q = []
+    w = 0
+    for i in range(1, len(f)):
+        q.append(int(f[i]))
+    q.sort()
+    print(q)
+    for l in range(len(q)):
+        if w + q[l] <= s:
+            w += q[l]
+        else:
+            print(w, q[l], l)
+            break
+
+
+def Type_27_12862437():
+    with open("Type_27/27-B (12862437).txt") as file:
+        f = [int(line) for line in file]
+    n = f[0]
+    f = f[1:]
+    count = 0
+    q = 0
+    mas = [1] + [0] * 29
+    for i in range(n):
+        q += f[i]
+        count += mas[q % 30]
+        mas[q % 30] += 1
+
+    print(count)
+
+
 if __name__ == '__main__':
-    Type_27_35916()
+    Type_26_12862437()
