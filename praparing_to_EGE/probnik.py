@@ -1167,5 +1167,201 @@ def Type_27_12862437():
     print(count)
 
 
+def Type_2_12862436():
+    for x in range(2):
+        for y in range(2):
+            for z in range(2):
+                for w in range(2):
+                    if (x or y) and not (y == z) and not w:
+                        print(x, z, y, w)
+
+
+def Type_12_12862436():
+    a = '1' * 100
+    while '111' in a:
+        a = a.replace('11', '2', 1)
+        a = a.replace('22', '1', 1)
+    print(a)
+
+
+def Type_14_12862436():
+    a = 49**8 + 7**24 - 7
+    count = 0
+    while a:
+        if a % 7 == 0:
+            count += 1
+        a //= 7
+    print(count)
+
+
+def Type_15_12862436():
+    for a in range(100):
+        flag = False
+        for x in range(100):
+            for y in range(100):
+                if not ((4 * x + 3 * y < a) or (x >= y) or (y >= 13)):
+                    flag = True
+                    break
+        if not flag:
+            print(a)
+
+
+def Type_16_12862436():
+    def f(n):
+        if n == 1:
+            return 1
+        if n > 1:
+            return 5 * f(n - 1) + 3 * n
+        return 0
+    print(f(4))
+
+
+def Type_17_12862436():
+    with open("Type_17/17 (12862436).txt") as file:
+        f = [int(line) for line in file]
+    count = 0
+    max_par = -1
+    for i in range(len(f) - 1):
+        for j in range(i + 1, len(f)):
+            number = f[i] + f[j]
+            if number % 2 != 0 and (f[i] * f[j]) % 5 == 0:
+                count += 1
+                max_par = max(max_par, number)
+    print(count, max_par)
+
+
+def Type_23_12862436():
+    def f(n):
+        if n == 2:
+            return 1
+        if n / 3 >= 2 and n - 2 >= 2:
+            return f(n / 3) + f(n - 2) + f(n - 1)
+        if n - 2 >= 2:
+            return f(n - 2) + f(n - 1)
+        if n / 3 >= 2 and n - 1 >= 2:
+            return f(n / 3) + f(n - 1)
+        if n - 1 >= 2:
+            return f(n - 1)
+        return 0
+    print(f(9))
+
+
+def Type_24_12862436():
+    with open('Type_24/24(12862436).txt') as file:
+        f = [line[:-1] for line in file]
+    max_count = 0
+    for line in f:
+        if line.count('G') < 25:
+            count = 0
+            for i in range(len(line) - 1):
+                for j in range(i + 1, len(line)):
+                    if line[i] != line[j]:
+                        count += 1
+                    else:
+                        max_count = max(max_count, count)
+                        count = 0
+                        break
+    print(max_count)
+
+
+def Type_25_12862436():
+    for number in range(210235, 210301):
+        flag = 2
+        mas = []
+        for i in range(2, int(number ** 0.5) + 1):
+            if number % i == 0:
+                flag -= 1
+                mas.append(i)
+                mas.append(number // i)
+        mas.sort()
+        if not flag:
+            print(mas)
+
+
+def Type_26_12862436():
+    izdel = {}
+    with open('Type_26/26(12862436).txt') as file:
+        f = [line[:-1] for line in file]
+        print(f)
+    q = []
+    w = []
+    for i in range(1, len(f)):
+        q = f[i]
+        izdel[int(q[0:-2])] = q[-1]
+        w.append(int(q[0:-2]))
+    w.sort()
+    q = []
+    for i in range(len(w)):
+        q.append(w[i])
+        oll_cost = 0
+        count_b = 0
+        for cost in q:
+            oll_cost += cost
+            if izdel[cost] == 'B':
+                count_b += 1
+        if oll_cost + w[i + 1] > 982000:
+            print(count_b, 982000 - oll_cost, i)
+            break
+
+    for j in range(i, 0, -1):
+        if izdel[w[j]] == 'A':
+            for r in range(i + 1, len(w)):
+                if izdel[w[r]] == 'B':
+                    if 982000 - oll_cost + w[j] - w[r] >= 0:
+                        oll_cost = oll_cost -  w[j] + w[r]
+                        i = r
+                        count_b += 1
+                        print(982000 - oll_cost, count_b)
+
+
+def Type_27_12862436():
+    with open("Type_27/27_B(12862436).txt") as file:
+        f = [int(line) for line in file]
+    n = f[0]
+    f = f[1:]
+    count = 0
+    q = 0
+    mas = [1] + [0] * 42
+    slov = {}
+    list_huil =[]
+    t = f[0] % 43
+    for i in range(n):
+        q += f[i]
+        count += mas[q % 43]
+        slov[q] = q % 43
+        mas[q % 43] += 1
+        if f[i] % 43 != t:
+            t = f[i] % 43
+            list_huil.append(i)
+    print(list_huil)
+    max_q = 0
+    for i in range(len(list_huil) - 1):
+        q = 0
+        for j in range(list_huil[i], list_huil[i + 1]):
+            q += f[j]
+        if max_q == q:
+            print('Жаль')
+        max_q = max(max_q, q)
+    print(max_q)
+
+
+def Type_27_12862436_test():
+    with open("Type_27/27_A(12862436).txt") as file:
+        f = [int(line) for line in file]
+    n = f[0]
+    f = f[1:]
+    count = 0
+
+    max_q = 0
+    mas = [1] + [0] * 42
+    for i in range(n):
+        q = 0
+        for j in range(i, n):
+            q += f[j]
+            if q % 43 == 0:
+                max_q = max(max_q, q)
+    print(max_q)
+
+
 if __name__ == '__main__':
-    Type_17_12862437()
+    Type_17_12862436()
