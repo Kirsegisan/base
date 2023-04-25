@@ -1323,7 +1323,7 @@ def Type_27_12862436():
     q = 0
     mas = [1] + [0] * 42
     slov = {}
-    list_huil =[]
+    list_huil = []
     t = f[0] % 43
     for i in range(n):
         q += f[i]
@@ -1335,14 +1335,17 @@ def Type_27_12862436():
             list_huil.append(i)
     print(list_huil)
     max_q = 0
+    otvet = []
     for i in range(len(list_huil) - 1):
         q = 0
         for j in range(list_huil[i], list_huil[i + 1]):
             q += f[j]
         if max_q == q:
             print('Жаль')
-        max_q = max(max_q, q)
-    print(max_q)
+        if max_q < q:
+            otvet.append(list_huil[i + 1] - list_huil[i])
+    otvet.sort()
+    print(otvet[-2])
 
 
 def Type_27_12862436_test():
@@ -1363,5 +1366,74 @@ def Type_27_12862436_test():
     print(max_q)
 
 
+def Type_25_40741():
+    otvet = []
+    for number in range(10_000_000):
+        m = []
+        for i in range(2, int(number**0.5)):
+            if number % i == 0:
+                m.append(i)
+                m.append(number // i)
+        m.sort()
+        print(m)
+        if len(m) >= 2:
+            m = m[-1] + m[-2]
+            if 0 < m < 10000:
+                otvet.append(m)
+        if len(otvet) == 5:
+            print(otvet)
+            break
+
+
+def Type_27_hz():
+    with open('27-A.txt') as file:
+        f = [int(line) for line in file]
+    f = f[1:]
+    f.sort()
+    q = f[0:2]
+    min_znach = 10**8 * 3
+    print(f)
+    while True:
+        for i in range(len(q) - 2):
+            for j in range(i + 1, len(q) - 1):
+                for r in range(j + 1, len(q)):
+                    number = f[i] + f[j] + f[r]
+                    if number % 3 == 0:
+                        min_znach = min(min_znach, number)
+        q.append(f[len(q)])
+        print(min_znach, min_znach % 3)
+
+
+def Type_16_1():
+    def f(n):
+        if n == 1:
+            return 0
+        if 1 < n <= 3:
+            return 1
+        if n > 3:
+            return f(n-3) + f(n-2) + f(n-1)
+    print(f(9))
+
+
+def Type_16_2():
+    def f(n):
+        if n <= 2:
+            return 1
+        if n > 2:
+            return f(n - 2) * (n - 1)
+    print(f(7))
+
+
+def Type_16_3():
+    def f(n):
+        if n <= 2:
+            return 2
+        if n > 2 and n % 2 == 0:
+            return f(n-2)+f(n-1) - n
+        elif n > 2 and n % 2 != 0:
+            return f(n-1)-f(n-2)+2*n
+    print(f(32))
+
+
 if __name__ == '__main__':
-    Type_17_12862436()
+    Type_27_12862436()
