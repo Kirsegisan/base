@@ -1471,5 +1471,27 @@ def Type_27_38604():
     print(len_pod, max_pod)
 
 
+def Type_27_41002():
+    with open('Type_27/27-B (41002).txt') as file:
+        f = [int(line) for line in file]
+    n = f[0]
+    f = f[1:]
+    min_ost = [2 * 10 ** 9 + 1] * 30
+    max_summ = 0
+    count_good_number = 0
+    q = 0
+    ost = 0
+    for i in range(len(f)):
+        q += f[i]
+        if f[i] > 0 and f[i] % 2 != 0:
+            count_good_number += 1
+            ost = count_good_number % 30
+        if min_ost[ost] > q:
+            min_ost[ost] = q
+        max_summ = max(max_summ, q - min_ost[ost])
+    print(min_ost)
+    print(max_summ)
+
+
 if __name__ == '__main__':
-    Type_27_38604()
+    Type_27_41002()
