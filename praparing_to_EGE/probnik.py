@@ -1,7 +1,7 @@
 import time
 #from openpyxl import*
 from turtle import*
-from typing import List
+from typing import List, Union
 
 
 def Type_5_18785():
@@ -1435,5 +1435,41 @@ def Type_16_3():
     print(f(32))
 
 
+def Type_27_38604():
+    with open("Type_27/27_B(38604).txt") as file:
+        f = [int(line) for line in file]
+    n = f[0]
+    f = f[1:]
+    remainder_list_first: list[Union[int, str]] = [''] * 43
+    remainder_list_last: list[Union[int, str]] = [''] * 43
+    len_list_first: list[Union[int, str]] = [''] * 43
+    len_list_last: list[Union[int, str]] = [''] * 43
+    q = 0
+    max_pod = 0
+    len_pod = 0
+    for i in range(len(f)):
+        q += f[i]
+        ost = q % 43
+        if not remainder_list_first[ost]:
+            print(q, ost)
+            remainder_list_first[ost] = q
+            len_list_first[ost] = i
+        remainder_list_last[ost] = q
+        len_list_last[ost] = i
+    len_list_last = list(filter(lambda x: x != "", len_list_last))
+    len_list_first = list(filter(lambda x: x != "", len_list_first))
+    remainder_list_last = list(filter(lambda x: x != "", remainder_list_last))
+    remainder_list_first = list(filter(lambda x: x != "", remainder_list_first))
+    print(len_list_first)
+    print(len_list_last)
+    print(remainder_list_first)
+    print(remainder_list_last)
+    for fln, lln, fo, lo in zip(len_list_first, len_list_last, remainder_list_first, remainder_list_last):
+        if lo - fo > max_pod:
+            max_pod = lo - fo
+            len_pod = lln - fln
+    print(len_pod, max_pod)
+
+
 if __name__ == '__main__':
-    Type_27_12862436()
+    Type_27_38604()
