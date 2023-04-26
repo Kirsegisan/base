@@ -976,8 +976,10 @@ def Type_17_37350():
 
 
 def Type_27_35916():
-    with open("Type_27/27_35916.txt") as file:
+    with open("Type_27/27-A (35916).txt") as file:
         f: list[int] = [int(line) for line in file]
+    n = f[0]
+    f = f[1:]
     f.sort()
     q = list()
     q.append(f[0])
@@ -1494,4 +1496,4 @@ def Type_27_41002():
 
 
 if __name__ == '__main__':
-    Type_27_41002()
+    Type_27_35916()
