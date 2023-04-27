@@ -1495,5 +1495,29 @@ def Type_27_41002():
     print(max_summ)
 
 
+def Type_27_27424():
+    with open('Type_27/27-B (27424).txt') as file:
+        f = file.readlines()
+    n = int(f[0].strip())
+    f = f[1:]
+    q = 0
+    final_list = []
+    for i in range(len(f)):
+        par = f[i].strip().split()
+        par.append('')
+        par[0], par[1], par[2] = max(int(par[0]), int(par[1])) - min(int(par[0]), int(par[1])), min(int(par[0]),int(par[1])), max(int(par[0]), int(par[1]))
+        q += par[2]
+        final_list.append(par)
+    final_list.sort()
+    print(q, q % 3)
+    print(final_list)
+    for j in final_list:
+        q -= j[0]
+        if q % 3 != 0:
+            print(q, q % 3)
+            break
+        q += j[0]
+
+
 if __name__ == '__main__':
-    Type_27_35916()
+    Type_27_27424()
