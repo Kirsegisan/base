@@ -231,9 +231,9 @@ def Type_17_37336():
             numbers.append(int(number))
     for i in range(len(numbers) - 1):
         if numbers[i] % 3 == 0 or numbers[i+1] % 3 == 0:
-            count =+ 1
+            count += 1
             max_pare = max(max_pare, numbers[i] + numbers[i + 1])
-    print(max_pare)
+    print(count, max_pare)
 
 
 def Type_5_8094():
@@ -1519,5 +1519,96 @@ def Type_27_27424():
         q += j[0]
 
 
+def Type_27_27889():
+    with open('Type_27/27-B (27889).txt') as file:
+        f = file.readlines()
+    n = f[0]
+    f = f[1:]
+    final_list = []
+    q = 0
+    for i in range(len(f)):
+        numbers = f[i].strip().split()
+        numbers.append('')
+        numbers[2], numbers[1] = max(int(numbers[0]), int(numbers[1])), min(int(numbers[0]), int(numbers[1]))
+        numbers[0] = numbers[2] - numbers[1]
+        q += numbers[1]
+        final_list.append(numbers)
+    final_list.sort()
+    if q % 3 != 0:
+        print(q)
+    else:
+        for i in final_list:
+            q -= i[0]
+            if q % 3 != 0:
+                print(q, q % 3)
+                break
+            q += i[0]
+
+
+def Type_27_27890():
+    with open('Type_27/27-B (27890).txt') as file:
+        f = file.readlines()
+    n = f[0]
+    f = f[1:]
+    q = 0
+    final_list = []
+    for num in f:
+        num = num.strip().split()
+        num.append('')
+        num[1], num[2] = min(int(num[0]), int(num[1])), max(int(num[0]), int(num[1]))
+        num[0] = num[2] - num[1]
+        q += num[2]
+        final_list.append(num)
+    final_list.sort()
+    if q % 3 != 5:
+        print(q)
+    else:
+        for i in final_list:
+            q -= i[0]
+            if q % 5 != 0:
+                print(q, q % 5)
+                break
+            q += i[0]
+
+
+def Type_27_27891():
+    with open('Type_27/27-B (27891).txt') as file:
+        f = [int(line) for line in file]
+    n = f[0]
+    f = f[1:]
+    seven = [0]
+    two = [0]
+    fourteen = [0]
+    max_num = 0
+    for num in f:
+        if num % 14 == 0:
+            fourteen.append(num)
+        elif num % 7 == 0:
+            seven.append(num)
+        elif num % 2 == 0:
+            two.append(num)
+        max_num = max(max_num, num)
+    fourteen.sort()
+    seven.sort()
+    two.sort()
+    if max_num == fourteen[-1]:
+        print('pathetic')
+    print(max(fourteen[-1] * max_num, seven[-1] * two[-1]))
+
+
+def Type_17_37336():
+    with open('Type_17/17 (37336).txt') as file:
+        f = [int(line) for line in file]
+    count = 0
+    max_num = 0
+    for i in range(len(f) - 1):
+        j = i + 1
+        numbers = f[i] + f[j]
+        if f[i] % 3 == 0 or f[j] % 3 == 0:
+            count += 1
+            max_num = max(max_num, numbers)
+    print(count, max_num)
+
+
 if __name__ == '__main__':
-    Type_27_27424()
+    Type_17_37336()
