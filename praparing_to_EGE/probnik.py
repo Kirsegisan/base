@@ -1608,7 +1608,77 @@ def Type_17_37336():
             count += 1
             max_num = max(max_num, numbers)
     print(count, max_num)
+def Type_17_39764():
+    with open('17 39764.txt') as file:
+        f = [int(line) for line in file]
+    count = 0
+    max_two = 0
+    for i in range(len(f) - 2):
+        two = [f[i], f[1], f[2]]
+        two.sort()
+        if two[2] ** 2 == two[0] ** 2 + two[1] ** 2:
+            count += 1
+            max_two = max(max_two, two)
+            print(count, max_two)
+
+def Type_17_37371():
+    with open('17 (37371).txt') as file:
+        f = [int(line) for line in file]
+    count = 0
+    par_max = 0
+    for i in range(len(f) - 1):
+        for j in range(i + 1, len(f)):
+            num = [f[i], f[j]]
+            num.sort()
+            if (num[1] - num[0]) % 60 == 0:
+                print(num)
+                count += 1
+                par_max = max(par_max, num[1] - num[0])
+                print(count, par_max)
+
+def Type_17_37370():
+    with open('17 (37370).txt') as file:
+        f = [int(line) for line in file]
+    par_max = 0
+    count = 0
+    for i in range(len(f) - 1):
+        for j in range(i + 1, len(f)):
+            num = [f[i], f[j]]
+            num.sort()
+            if (num[1] - num[0]) % 60 == 0 and (num[0] % 15 == 0 or num[1] % 15 == 0):
+                count += 1
+                par_max = max(par_max, num[1] - num[0])
+    print(count, par_max)
+
+
+def Type_27_27989():
+    with open('Type_27/27-A (27989).txt') as file:
+        f = [int(line) for line in file]
+    n = f[0]
+    f = f[1:]
+    num_26 = []
+    num_13 = []
+    num_2 = []
+    for num in f:
+        if num % 26 == 0:
+            num_26.append(num)
+        elif num % 13 == 0:
+            num_13.append(num)
+        elif num % 2 == 0:
+            num_2.append(num)
+    def F(n):
+        if n == 1:
+            return 1
+        return F(n - 1) + n
+    num_2.sort()
+    num_26.sort()
+    num_13.sort()
+    q = 0
+    for i in range(len(num_26)):
+        n -= 1
+        q += n
+    print(q + len(num_13) * len(num_2))
 
 
 if __name__ == '__main__':
-    Type_17_37336()
+    Type_27_27989()
