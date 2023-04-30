@@ -1608,191 +1608,77 @@ def Type_17_37336():
             count += 1
             max_num = max(max_num, numbers)
     print(count, max_num)
-
-
-def Type_2_27260():
-    for x in range(2):
-        for y in range(2):
-            for z in range(2):
-                for w in range(2):
-                    if not (((x or not y) and (not z == w)) <= (y and z)):
-                        print(y, z, w, x)
-
-
-def Type_5_37140():
-    n = 1
-    min_r = 10000
-    while True:
-        r = bin(n)[2:]
-        if n % 2 == 0:
-            r = '1' + r + '0'
-        else:
-            r = '11' + r + '11'
-        r = int(r, 2)
-        if r > 52:
-            min_r = min(min_r, r)
-            print(min_r)
-        n += 1
-
-
-def Type_8_33180():
-    q = 'тимофей'
+def Type_17_39764():
+    with open('17 39764.txt') as file:
+        f = [int(line) for line in file]
     count = 0
-    for a in q[:-1]:
-        for b in q:
-            for c in q:
-                for e in q:
-                    for d in q[:-1]:
-                        w = a+b+c+e+d
-                        if w.count(q[-1]) <= 1:
-                            if w.count('и') >= 1 and w.count('й') >= 1:
-                                if abs(w.index('и') - w.index('й')) != 1:
-                                    count += 1
-                            else:
-                                count += 1
-    print(count, q[:-1])
-
-
-def Type_13544():
-    a = '3' + '9' * 93
-    while '19' in a or '299' in a or '3999' in a:
-        a = a.replace('19', '2', 1)
-        a = a.replace('299', '3', 1)
-        a = a.replace('3999', '1', 1)
-    print(a)
-
-
-def Type_14_35904():
-    a = 7 * 512**120 - 6 * 64**100 + 8**210 - 255
-    count = 0
-    print(oct(a)[2:].count('0'))
-    while a:
-        if a % 8 == 0:
+    max_two = 0
+    for i in range(len(f) - 2):
+        two = [f[i], f[1], f[2]]
+        two.sort()
+        if two[2] ** 2 == two[0] ** 2 + two[1] ** 2:
             count += 1
-        a = a // 8
-    print(count)
+            max_two = max(max_two, two)
+            print(count, max_two)
 
+def Type_17_37371():
+    with open('17 (37371).txt') as file:
+        f = [int(line) for line in file]
+    count = 0
+    par_max = 0
+    for i in range(len(f) - 1):
+        for j in range(i + 1, len(f)):
+            num = [f[i], f[j]]
+            num.sort()
+            if (num[1] - num[0]) % 60 == 0:
+                print(num)
+                count += 1
+                par_max = max(par_max, num[1] - num[0])
+                print(count, par_max)
 
-def Type_15_35904():
-    def F(n, m):
-        return n % m == 0
-    A = 1
-    while True:
-        for x in range(1, 1000):
-            if not ((F(A, 40)) and ((F(780, x)) <= ((not F(A, x)) <= (not F(180, x))))):
-                print(A, x)
-                break
-        else:
-            print(A)
-            break
-        A += 1
-
-
-def Type_16_7270():
-    def f(n):
-        if n == 1:
-            return 1
-        if n > 1:
-            return f(n - 1) * (n + 2)
-    print(f(5))
-
-
-def Type_17_38951():
-    with open('Type_17/17 (38951).txt') as file:
+def Type_17_37370():
+    with open('17 (37370).txt') as file:
         f = [int(line) for line in file]
     par_max = 0
     count = 0
     for i in range(len(f) - 1):
-        if f[i] % 3 == 0 or f[i + 1] % 3 == 0:
-            if (f[i] + f[i + 1]) % 5 == 0:
+        for j in range(i + 1, len(f)):
+            num = [f[i], f[j]]
+            num.sort()
+            if (num[1] - num[0]) % 60 == 0 and (num[0] % 15 == 0 or num[1] % 15 == 0):
                 count += 1
-                par_max = max(par_max, f[i] + f[i + 1])
+                par_max = max(par_max, num[1] - num[0])
     print(count, par_max)
 
 
-def Type_23_36036():
-    def f(n):
-        if n == 2:
-            return 1
-        if n - 5 >= 2:
-            return f(n - 5) + f(n - 2)
-        if n - 2 >= 2:
-            return f(n - 2)
-        return 0
-    print(f(23))
-
-
-def Type_24_33769():
-    with open('Type_24/24 (33769).txt') as file:
-        f = file.readline()
-    mas = {'A': 1, 'B': 1, 'C': 1,'D': 1,'E': 1,'F': 1,'G': 1,'H': 1,'I': 1,'J': 1,'K': 1,'L': 1,'M': 1,'N': 1,'P': 1,'U': 1,'R': 1,'S': 1,'T': 1,'Q': 1,'V': 1,'W': 1,'X': 1,'O': 1,'Z': 1, 'Y': 1}
-    for i in range(len(f) - 2):
-        if f[i] == f[i + 1]:
-            mas[f[i + 2]] = mas[f[i + 2]] + 1
-    otvet = ''
-    w = 0
-    for i in mas:
-        if w < mas[i]:
-            w = mas[i]
-            otvet = i
-    print(w, otvet)
-
-
-def Type_25_28121():
-    count = 0
-    for i in range(2422000, 2422081):
-        for j in range(2, int(i ** 0.5) + 1):
-            if i % j == 0:
-                break
-        else:
-            count += 1
-            print(count, i)
-
-
-def Type_26_37161():
-    with open('Type_26/26 (37161).txt') as file:
-        f = file.readlines()
-    n = f[0]
-    f = f[1:]
-    q = [[0]] * 10000
-    for par in f:
-        par = par.strip().split()
-        par[0], par[1] = int(par[0]), int(par[1])
-        q[par[0]] = q[par[0]] + [par[1]]
-    print(q)
-    for r in range(len(q) - 1, -1, -1):
-        l = q[r]
-        l.sort()
-        for j in range(len(l) - 2):
-            if l[j + 1] - l[j] == 3:
-                print(r, l[j] + 1)
-                break
-
-
-def Type_27_27990():
-    with open('Type_27/27-B (27990).txt') as file:
+def Type_27_27989():
+    with open('Type_27/27-A (27989).txt') as file:
         f = [int(line) for line in file]
     n = f[0]
     f = f[1:]
-    u31_lict = 0
-    u2_list = 0
-    u62_list = 0
-    u_max = len(f)
-    for i in f:
-        if i % 62 == 0:
-            u62_list += 1
-        elif i % 31 == 0:
-            u31_lict += 1
-        elif i % 2 == 0:
-            u2_list += 1
+    num_26 = []
+    num_13 = []
+    num_2 = []
+    for num in f:
+        if num % 26 == 0:
+            num_26.append(num)
+        elif num % 13 == 0:
+            num_13.append(num)
+        elif num % 2 == 0:
+            num_2.append(num)
+    def F(n):
+        if n == 1:
+            return 1
+        return F(n - 1) + n
+    num_2.sort()
+    num_26.sort()
+    num_13.sort()
     q = 0
-    r = 0
-    for j in range(u62_list):
-        r +=1
-        q += u_max - r
-    print(q + u2_list * u31_lict)
-    print(u2_list, u62_list,u31_lict)
+    for i in range(len(num_26)):
+        n -= 1
+        q += n
+    print(q + len(num_13) * len(num_2))
 
 
 if __name__ == '__main__':
-    Type_27_27990()
+    Type_27_27989()
