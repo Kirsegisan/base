@@ -45,4 +45,24 @@ from turtle import *
 #             t.dot(2, "Red")
 #     t.clear()
 #     a += 1
-print(bin(16384))
+with open('FileToStarGrad№5/27-A.txt') as file:
+    f = [int(line) for line in file]
+n = f[0]
+f = f[1:]
+first_list = [{} for i in range(9)]
+q = 0
+for i in f:
+    first_list[i % 9][i] = q % 9
+    q += 1
+print(first_list)
+count = 0
+for n in range(9):
+    n_book = first_list[n]
+    for num_1 in n_book:
+        for j in range(n, 9):
+            j_book = first_list[j]
+            for num_2 in j_book:
+                if (n + j) % 9 == (n_book[num_1] - j_book[num_2]) % 9 and num_2 != num_1:
+                    # print(n, j, n_book[num_1], j_book[num_2])
+                    count += 1
+print(count)
