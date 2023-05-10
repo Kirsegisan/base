@@ -66,5 +66,41 @@ from turtle import *
 with open('FileToStarGrad№5/26.txt') as file:
     n = file.readline()
     f = [line.strip().split() for line in file]
-parking = [[True] * 80], [[True] * 20]
-print(f, parking)
+parking = [0] * 80, [0] * 20
+for i in range(len(f)):
+    f[i][0], f[i][1] = int(f[i][0]), int(f[i][1])
+f.sort()
+f.append([f[-1][0], 0, 'STOP'])
+lohi = 0
+vip = 0
+for i in range(len(f) - 1):
+    pausa = f[i + 1][0] - f[i][0]
+    coming_care = f[i]
+    if coming_care[2] == 'A':
+        if parking[0].count(0) > 0:
+            parking[0][parking[0].index(0)] = coming_care[1]
+            vip += 1
+        elif parking[1].count(0) > 0:
+            parking[1][parking[1].index(0)] = coming_care[1]
+            vip += 1
+        else:
+            lohi += 1
+    if coming_care[2] == 'B':
+        if parking[1].count(0) > 0:
+            parking[1][parking[1].index(0)] = coming_care[1]
+        else:
+            lohi += 1
+    for j in range(len(parking[0])):
+        if parking[0][j] - pausa <= 0:
+            parking[0][j] = 0
+        else:
+            parking[0][j] -= pausa
+    for j in range(len(parking[1])):
+        if parking[1][j] - pausa <= 0:
+            parking[1][j] = 0
+        else:
+            parking[1][j] -= pausa
+    print(parking[0])
+    print(parking[1])
+print(vip)
+print(lohi)
