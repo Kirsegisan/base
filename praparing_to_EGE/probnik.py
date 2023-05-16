@@ -1680,5 +1680,39 @@ def Type_27_27989():
     print(q + len(num_13) * len(num_2))
 
 
+def Type_8_55804():
+    book = 'АВЛОР'
+    count = 1
+    for a in book:
+        for b in book:
+            for c in book:
+                for d in book:
+                    if a == 'Л':
+                        print(count)
+                        break
+                    count += 1
+
+
+def Type_12_19063():
+    a = '8' * 70
+    while '2222' in a or '8888' in a:
+        if '2222' in a:
+            a = a.replace('2222', '88', 1)
+        else:
+            a = a.replace('8888', '22', 1)
+    print(a)
+
+
+def Type_16_55812():
+    def f(n):
+        if n >= 2025:
+            return n
+        if n < 2025:
+            return n + 3 + f(n + 3)
+
+
+    print(f(23) - f(21))
+
+
 if __name__ == '__main__':
-    Type_27_27989()
+    Type_16_55812()
