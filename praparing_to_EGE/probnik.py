@@ -1680,5 +1680,18 @@ def Type_27_27989():
     print(q + len(num_13) * len(num_2))
 
 
+def Type_8_55804():
+    book = 'АВЛОР'
+    count = 1
+    for a in book:
+        for b in book:
+            for c in book:
+                for d in book:
+                    if a == 'Л':
+                        print(count)
+                        break
+                    count += 1
+
+
 if __name__ == '__main__':
-    Type_27_27989()
+    Type_8_55804()
