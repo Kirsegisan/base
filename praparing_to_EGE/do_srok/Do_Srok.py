@@ -61,4 +61,26 @@ def Type_24():
     print(q_max)
 
 
-Type_24()
+def Type_25():
+    w = '0 1 2 3 4 5 6 7 8 9'
+    q = [''] + w.split()
+    w = w.split()
+    for i in w:
+        for j in w:
+            for r in q:
+                num = int('12' + i + j + '1' + r + '56')
+                if num % 317 == 0:
+                    print(num, num // 317)
+
+
+def Type_26():
+    with open('ИНФ_Доп.файлы/1/1_26.txt') as file:
+        n = file.readline()
+        r = file.readline()
+        f = [line.strip().split() for line in file]
+    print(n)
+    print(r)
+    print(f)
+
+
+Type_26()
