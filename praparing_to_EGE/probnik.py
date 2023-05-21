@@ -1608,6 +1608,8 @@ def Type_17_37336():
             count += 1
             max_num = max(max_num, numbers)
     print(count, max_num)
+
+
 def Type_17_39764():
     with open('17 39764.txt') as file:
         f = [int(line) for line in file]
@@ -1620,6 +1622,7 @@ def Type_17_39764():
             count += 1
             max_two = max(max_two, two)
             print(count, max_two)
+
 
 def Type_17_37371():
     with open('17 (37371).txt') as file:
@@ -1635,6 +1638,7 @@ def Type_17_37371():
                 count += 1
                 par_max = max(par_max, num[1] - num[0])
                 print(count, par_max)
+
 
 def Type_17_37370():
     with open('17 (37370).txt') as file:
@@ -1714,5 +1718,14 @@ def Type_16_55812():
     print(f(23) - f(21))
 
 
+def Type_6_48454():
+    t = Turtle()
+    t.left(90)
+    z = 10
+    for i in range(4):
+        t.forward(18 * z)
+        t.right(72)
+
+
 if __name__ == '__main__':
-    Type_16_55812()
+    Type_6_48454()

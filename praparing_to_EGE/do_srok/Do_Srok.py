@@ -75,12 +75,30 @@ def Type_25():
 
 def Type_26():
     with open('ИНФ_Доп.файлы/1/1_26.txt') as file:
-        n = file.readline()
+        n = int(file.readline())
         r = file.readline()
         f = [line.strip().split() for line in file]
-    print(n)
+    luggage_storage = [0 for i in range(n)]
+    f.sort()
+    print(luggage_storage)
     print(r)
     print(f)
+    count = 0
+    last_box = 0
+    f[0] = int(f[0][0]), int(f[0][1])
+    time = f[0][0]
+    for client in range(1, len(f)):
+        f[client] = int(f[client][0]), int(f[client][1])
+        time += f[client][0] - f[client - 1][0]
+        for i in range(len(luggage_storage)):
+            if luggage_storage[i] < time:
+                luggage_storage[i] = 0
+        if 0 in luggage_storage:
+            luggage_storage[luggage_storage.index(0)] = f[client][1]
+            count += 1
+            last_box = luggage_storage.index(f[client][1])
+    print(luggage_storage)
+    print(count, last_box)
 
 
 Type_26()
