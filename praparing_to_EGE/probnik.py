@@ -1680,5 +1680,14 @@ def Type_27_27989():
     print(q + len(num_13) * len(num_2))
 
 
+def Type_2_15827():
+    for x in range(2):
+        for y in range(2):
+            for z in range(2):
+                for w in range(2):
+                    if not(((x or not y)and(not z == w)) <= (y and z)):
+                        print(y, z, w, x)
+
+
 if __name__ == '__main__':
-    Type_27_27989()
+    Type_2_15827()
