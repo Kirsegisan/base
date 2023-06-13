@@ -1608,6 +1608,8 @@ def Type_17_37336():
             count += 1
             max_num = max(max_num, numbers)
     print(count, max_num)
+
+
 def Type_17_39764():
     with open('17 39764.txt') as file:
         f = [int(line) for line in file]
@@ -1620,6 +1622,7 @@ def Type_17_39764():
             count += 1
             max_two = max(max_two, two)
             print(count, max_two)
+
 
 def Type_17_37371():
     with open('17 (37371).txt') as file:
@@ -1635,6 +1638,7 @@ def Type_17_37371():
                 count += 1
                 par_max = max(par_max, num[1] - num[0])
                 print(count, par_max)
+
 
 def Type_17_37370():
     with open('17 (37370).txt') as file:
@@ -1680,14 +1684,48 @@ def Type_27_27989():
     print(q + len(num_13) * len(num_2))
 
 
-def Type_2_15827():
-    for x in range(2):
-        for y in range(2):
-            for z in range(2):
-                for w in range(2):
-                    if not(((x or not y)and(not z == w)) <= (y and z)):
-                        print(y, z, w, x)
+def Type_8_55804():
+    book = 'АВЛОР'
+    count = 1
+    for a in book:
+        for b in book:
+            for c in book:
+                for d in book:
+                    if a == 'Л':
+                        print(count)
+                        break
+                    count += 1
+
+
+def Type_12_19063():
+    a = '8' * 70
+    while '2222' in a or '8888' in a:
+        if '2222' in a:
+            a = a.replace('2222', '88', 1)
+        else:
+            a = a.replace('8888', '22', 1)
+    print(a)
+
+
+def Type_16_55812():
+    def f(n):
+        if n >= 2025:
+            return n
+        if n < 2025:
+            return n + 3 + f(n + 3)
+
+
+    print(f(23) - f(21))
+
+
+def Type_6_48454():
+    t = Turtle()
+    t.left(90)
+    z = 10
+    for i in range(4):
+        t.forward(18 * z)
+        t.right(72)
 
 
 if __name__ == '__main__':
-    Type_2_15827()
+    Type_6_48454()
