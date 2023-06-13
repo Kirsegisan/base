@@ -1684,6 +1684,15 @@ def Type_27_27989():
     print(q + len(num_13) * len(num_2))
 
 
+def Type_2_15827():
+    for x in range(2):
+        for y in range(2):
+            for z in range(2):
+                for w in range(2):
+                    if not(((x or not y)and(not z == w)) <= (y and z)):
+                        print(y, z, w, x)
+
+
 def Type_8_55804():
     book = 'АВЛОР'
     count = 1
@@ -1727,5 +1736,89 @@ def Type_6_48454():
         t.right(72)
 
 
+def Type_25_15850():
+    n = 800001
+    while True:
+        m = 0
+        for i in range(2, n):
+            if n % i == 0:
+                m = i + n // i
+        if str(m)[-1] == '8':
+            print(n, m)
+        n += 1
+
+
+def Type_26_15851():
+    light_park = [0 for i in range(70)]
+    boos_park = [0 for i in range(30)]
+    print(light_park, boos_park)
+    with open('Type_26/26(15851).txt') as file:
+        n = file.readline()
+        f = [str(line).strip().split() for line in file]
+    for i in range(len(f)):
+        f[i][0], f[i][1], f[i][2] = int(f[i][0]), int(f[i][1]), f[i][2]
+    f.sort()
+    lucky = 0
+    loh = 0
+    light_park[0] = f[1][0]
+    print(f)
+    for j in range(1, len(f)):
+        idiot = f[j]
+        for i in range(len(light_park)):
+            light_park[i] -= f[j][0] - f[j - 1][0]
+            if light_park[i] <= 0:
+                light_park[i] = 0
+        for i in range(len(boos_park)):
+            boos_park[i] -= f[j][0] - f[j - 1][0]
+            if boos_park[i] <= 0:
+                boos_park[i] = 0
+        if idiot[2] == 'A':
+            if 0 in light_park:
+                light_park[light_park.index(0)] = idiot[1]
+            elif 0 in boos_park:
+                boos_park[boos_park.index(0)] = idiot[1]
+            else:
+                loh += 1
+        if idiot[2] == 'B':
+            if 0 in boos_park:
+                boos_park[boos_park.index(0)] = idiot[1]
+                lucky += 1
+            else:
+                loh += 1
+        print(light_park)
+        print(boos_park)
+        print()
+    print(loh, lucky)
+
+
+def Type_27_15852():
+    with open('Type_27/27-A (15852).txt') as file:
+        f = [int(i) for i in file]
+    count_del = []
+    for i in f:
+        n = i
+        n_2 = 0
+        n_5 = 0
+        while n % 2 == 0:
+            n_2 += 1
+            n = n // 2
+        n = i
+        while n % 5 == 0:
+            n_5 += 1
+            n = n // 5
+        count_del.append([n_2, n_5])
+    print(count_del)
+    count_2 = [0 for i in range(30)]
+    count_5 = [0 for i in range(30)]
+    for j in count_del:
+        count_2[j[0]] += 1
+        count_5[j[1]] += 1
+    for i in count_2:
+        for j in count_5:
+            print(i + j, end='')
+        print()
+    #not complit
+
+
 if __name__ == '__main__':
-    Type_6_48454()
+    Type_27_15852()
