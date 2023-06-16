@@ -1842,5 +1842,6 @@ def Type_16_15841():
             return n + 2 + f(n + 2)
     print(f(2015) - f(2020))
 
+
 if __name__ == '__main__':
     Type_16_15841()
