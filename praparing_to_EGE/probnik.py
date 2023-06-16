@@ -1792,33 +1792,55 @@ def Type_26_15851():
 
 
 def Type_27_15852():
-    with open('Type_27/27-A (15852).txt') as file:
+    with open('Type_27/27-B (15852).txt') as file:
         f = [int(i) for i in file]
-    count_del = []
-    for i in f:
-        n = i
-        n_2 = 0
-        n_5 = 0
-        while n % 2 == 0:
-            n_2 += 1
-            n = n // 2
-        n = i
-        while n % 5 == 0:
-            n_5 += 1
-            n = n // 5
-        count_del.append([n_2, n_5])
-    print(count_del)
-    count_2 = [0 for i in range(30)]
-    count_5 = [0 for i in range(30)]
-    for j in count_del:
-        count_2[j[0]] += 1
-        count_5[j[1]] += 1
-    for i in count_2:
-        for j in count_5:
-            print(i + j, end='')
-        print()
-    #not complit
 
+    def div_count(n, divaizor):
+        n_div = 0
+        while n % divaizor == 0:
+            n_div += 1
+            n = n // divaizor
+            if n_div == 8:
+                return n_div
+        return n_div
+
+    count_2_5 = [[0 for i in range(9)] for i in range(9)]
+    for number in f:
+        count_2_5[div_count(number, 5)][div_count(number, 2)] += 1
+
+
+    for line in count_2_5:
+        print(line)
+
+
+    cnt = 0
+    for i in range(9):
+        for j in range(9):
+            for k in range(9):
+                for n in range(9):
+                    if i + k >= 7 and j + n == 7 or i + k == 7 and j + n >= 7:
+                        cnt += count_2_5[i][j] * count_2_5[k][n]
+    print(cnt//2)
+
+
+def Type_23_15848():
+    def f(n, dont_use, need_use):
+        if n == dont_use or n < need_use:
+            return 0
+        if n == need_use:
+            return 1
+        return (n / 2 >= need_use) * f(n / 2, dont_use, need_use) + (n / 3 >= need_use) * f(n / 3, dont_use, need_use) + (n - 1 >= need_use) * f(
+            n - 1, dont_use, need_use)
+    print(f(50, 16, 14) * f(14, 16, 1))
+
+
+def Type_16_15841():
+    def f(n):
+        if n >= 2023:
+            return n
+        if n < 2023:
+            return n + 2 + f(n + 2)
+    print(f(2015) - f(2020))
 
 if __name__ == '__main__':
-    Type_27_15852()
+    Type_16_15841()
