@@ -1843,5 +1843,65 @@ def Type_16_15841():
     print(f(2015) - f(2020))
 
 
+def Type_5_10468():
+    for n in range(100):
+        r = bin(n)[2:]
+        for i in range(2):
+            r = r + str(r.count('1') % 2)
+        if int(r, 2) > 77:
+            print(n)
+
+
+def Type_16_4650():
+    def f(n):
+        if n == 1:
+            return 0
+        if n == 2 or n == 3:
+            return 1
+        if n > 3:
+            return f(n - 3) + f(n - 2) + f(n - 1)
+    for i in range(10):
+        print(f(i))
+
+
+def Type_17_37345():
+    with open('Type_17/17 (37345).txt') as file:
+        f = [int(line) for line in file]
+    count = 0
+    par_max = -1
+    for i in range(len(f) - 1):
+        for j in range(i + 1, len(f)):
+            if (f[i] * f[j]) % 62 == 0:
+                count += 1
+                par_max = max(par_max, f[i] + f[j])
+    print(count, par_max)
+
+
+def Type_5_25836():
+    print(bin(134))
+    for n in range(100):
+        r = bin(n)[2:]
+        if n % 2 == 0:
+            r = r + '00'
+        else:
+            r = r + '11'
+        if int(r, 2) < 134:
+            print(n, r)
+
+
+def Type_8_58237():
+    q = '6543210'
+    count = 0
+    for a in q:
+        for b in q:
+            for c in q:
+                for d in q:
+                    a, b, c, d = int(a), int(b), int(c), int(d)
+                    if a > b > c > d:
+                        count += 1
+                        print(a, b, c, d)
+    print(count)
+
+
 if __name__ == '__main__':
-    Type_16_15841()
+    Type_8_58237()
